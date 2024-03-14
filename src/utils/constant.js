@@ -1,0 +1,1 @@
+export const API_DATA ="http://demo4647612.mockable.io/"

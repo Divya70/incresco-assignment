@@ -1,20 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         customBlue: "#5CA4A9",
-        customDarkBlue: '#1D2331',
-        customBlueGray: '#323C52',
-        customGray: '#EDEDED',
-
+        customDarkBlue: "#1D2331",
+        customBlueGray: "#323C52",
+        customGray: "#EDEDED",
+        customLightGray:'#BDBDBD',
+        customWhite: "#F2F5FB",
+        notificationColor:'#E83363'
       },
     },
   },
   plugins: [],
-}
-
+};

@@ -108,8 +108,13 @@ const { data, setFilterJobs }=useApiData()
 
   return (
     <div className="bg-customDarkBlue text-customGray p-4 m-6 mr-0 ml-2 border-2 border-black rounded-md">
-      <h2 className="text-lg font-semibold mb-4 ">Filter by</h2>
-
+      
+      <div className="flex items-end mb-4 ">
+      <h2 className="text-lg font-semibold">Filter by</h2>
+      <div  onClick={clearAllFilters}
+          className="text-white px-3 rounded-md">Clear all</div>
+      </div>
+      <div className="border-b h-0"></div>
       <div>
         <h3 className="font-semibold mb-2">Company</h3>
         {companies.map((company) => (
@@ -259,14 +264,7 @@ const { data, setFilterJobs }=useApiData()
         ))}
       </div>
 
-      <div className="mt-6">
-        <button
-          onClick={clearAllFilters}
-          className="bg-red-500 text-white px-3 py-2 rounded-md"
-        >
-          Clear all
-        </button>
-      </div>
+    
     </div>
   );
 };

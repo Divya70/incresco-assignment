@@ -22,7 +22,7 @@ const useApiData = () => {
 
     fetchData();
 
-    return () => {};
+    // return () => {};
   }, []);
 
   return { data, setData, filterJobs, setFilterJobs };

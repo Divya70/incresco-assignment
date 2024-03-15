@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-// import useApiData from "../utils/useApiData";
 
-const Sidebar = ({data,setFilterJobs}) => {
+const Sidebar = ({ data, setFilterJobs }) => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedDatePosted, setSelectedDatePosted] = useState("");
@@ -9,18 +8,15 @@ const Sidebar = ({data,setFilterJobs}) => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedExperience, setSelectedExperience] = useState("");
   const [selectedEducation, setSelectedEducation] = useState("");
-// const { data, setFilterJobs }=useApiData()
-  // handler code
+  // handler
   const handler = (key, id) => {
-    if(id===null) {
+    if (id === null) {
       setFilterJobs(data);
       return;
     }
-    const filteredData = data.jobs.filter((job) =>
-      job[key]===id.toString()
-    );
-    setFilterJobs({jobs:filteredData});
-  }
+    const filteredData = data.jobs.filter((job) => job[key] === id.toString());
+    setFilterJobs({ jobs: filteredData });
+  };
   const companies = [
     { id: 1, name: "Amazon" },
     { id: 2, name: "CVS Health" },
@@ -78,11 +74,11 @@ const Sidebar = ({data,setFilterJobs}) => {
   };
 
   useEffect(() => {
-    if(selectedCompany===null) handler("id", null);
+    if (selectedCompany === null) handler("id", null);
   }, [selectedCompany]);
 
   const toggleCompany = (event, companyId) => {
-    handler("id", event.target.checked ? companyId:null);
+    handler("id", event.target.checked ? companyId : null);
     setSelectedCompany(companyId);
   };
 
@@ -109,9 +105,13 @@ const Sidebar = ({data,setFilterJobs}) => {
   return (
     <div className="bg-customDarkBlue text-customGray p-4 m-6 mr-0 ml-2 border-2 border-black rounded-md">
       <div className="flex items-end mb-4 ">
-      <h2 className="text-lg font-semibold">Filter by</h2>
-      <div  onClick={clearAllFilters}
-          className="text-white px-3 border-b-2 cursor-pointer">Clear all</div>
+        <h2 className="text-lg font-semibold">Filter by</h2>
+        <div
+          onClick={clearAllFilters}
+          className="text-white px-3 border-b-2 cursor-pointer"
+        >
+          Clear all
+        </div>
       </div>
       <div className="border-b h-0"></div>
       <div>
@@ -121,7 +121,7 @@ const Sidebar = ({data,setFilterJobs}) => {
             <input
               type="checkbox"
               id={`company_${company.id}`}
-              checked={selectedCompany===company.id}
+              checked={selectedCompany === company.id}
               onChange={(event) => toggleCompany(event, company.id)}
               className="form-checkbox h-5 w-5  text-blue-500 rounded focus:ring-2 focus:ring-blue-400 focus:outline-none bg-slate-500"
             />
@@ -262,8 +262,6 @@ const Sidebar = ({data,setFilterJobs}) => {
           </div>
         ))}
       </div>
-
-    
     </div>
   );
 };

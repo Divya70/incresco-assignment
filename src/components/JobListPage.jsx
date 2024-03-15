@@ -1,5 +1,4 @@
 import Apple from "../assets/Apple.png";
-// import useApiData from "../utils/useApiData";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { BsBookmark } from "react-icons/bs";
 import { CircularProgressbar } from "react-circular-progressbar";
@@ -7,8 +6,6 @@ import "react-circular-progressbar/dist/styles.css";
 import SimmerUi from "./SimmerUi";
 function JobListPage({filterJobs}) {
   const percentage = 78;
-  // const { filterJobs } = useApiData();
-  // console.log("filterafter",filterJobs.jobs);
   return (
     <div className="bg-customDarkBlue p-2  rounded-lg flex-grow m-4">
       <div className="flex justify-between items-center mb-4 ">
@@ -26,7 +23,6 @@ function JobListPage({filterJobs}) {
       <div className="text-white">
         {filterJobs?.jobs?.length > 0 ? (
           filterJobs?.jobs?.map((job, index) => (
-
             <div className="w-full rounded-3xl shadow-md mb-2 " key={index}>
               <div className="flex justify-between items-center bg-customBlueGray rounded-t-lg p-6">
                 <div className=" text-white  flex items-center">

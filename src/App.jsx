@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Body from "./components/Body";
 import Header from "./components/Header";
-// import useApiData from "./utils/useApiData";
-// import { API_DATA } from "./utils/constant";
-
 function App() {
   const [data, setData] = useState([]);
   const [filterJobs, setFilterJobs] = useState([]);
-  // const {data, setFilterJobs ,filterJobs} =useApiData()
   const fetchData = async () => {
     try {
       const response = await fetch("http://demo4647612.mockable.io/");

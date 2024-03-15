@@ -7,7 +7,7 @@ function App() {
   const [filterJobs, setFilterJobs] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await fetch("http://demo4647612.mockable.io/");
+      const response = await fetch(" https://demo4647612.mockable.io");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

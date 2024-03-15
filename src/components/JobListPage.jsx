@@ -4,10 +4,11 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { BsBookmark } from "react-icons/bs";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import SimmerUi from "./SimmerUi";
 function JobListPage({filterJobs}) {
   const percentage = 78;
   // const { filterJobs } = useApiData();
-  console.log("filterafter",filterJobs.jobs);
+  // console.log("filterafter",filterJobs.jobs);
   return (
     <div className="bg-customDarkBlue p-2  rounded-lg flex-grow m-4">
       <div className="flex justify-between items-center mb-4 ">
@@ -113,7 +114,7 @@ function JobListPage({filterJobs}) {
             </div>
           ))
         ) : (
-          <p className="text-white text-center">Loading...</p>
+          <SimmerUi/>
         )}
       </div>
     </div>

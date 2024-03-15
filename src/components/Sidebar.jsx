@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useApiData from "../utils/useApiData";
+// import useApiData from "../utils/useApiData";
 
-const Sidebar = () => {
+const Sidebar = ({data,setFilterJobs}) => {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedDatePosted, setSelectedDatePosted] = useState("");
@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedExperience, setSelectedExperience] = useState("");
   const [selectedEducation, setSelectedEducation] = useState("");
-const { data, setFilterJobs }=useApiData()
+// const { data, setFilterJobs }=useApiData()
   // handler code
   const handler = (key, id) => {
     if(id===null) {
@@ -19,7 +19,7 @@ const { data, setFilterJobs }=useApiData()
     const filteredData = data.jobs.filter((job) =>
       job[key]===id.toString()
     );
-    setFilterJobs(filteredData);
+    setFilterJobs({jobs:filteredData});
   }
   const companies = [
     { id: 1, name: "Amazon" },
@@ -108,11 +108,10 @@ const { data, setFilterJobs }=useApiData()
 
   return (
     <div className="bg-customDarkBlue text-customGray p-4 m-6 mr-0 ml-2 border-2 border-black rounded-md">
-      
       <div className="flex items-end mb-4 ">
       <h2 className="text-lg font-semibold">Filter by</h2>
       <div  onClick={clearAllFilters}
-          className="text-white px-3 rounded-md">Clear all</div>
+          className="text-white px-3 border-b-2 cursor-pointer">Clear all</div>
       </div>
       <div className="border-b h-0"></div>
       <div>

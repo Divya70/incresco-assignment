@@ -35,7 +35,7 @@ function App() {
     <>
     <div className="bg-customDarkBlue">
     <Header handleSearch={handleSearch}/>
-      <Body filterJobs={filterJobs}/>
+      <Body filterJobs={filterJobs} data={data} setFilterJobs={setFilterJobs}/>
     </div>
     
     </>

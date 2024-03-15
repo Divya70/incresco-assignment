@@ -1,11 +1,12 @@
 import { LuUser2 } from "react-icons/lu";
 import { IoNotificationsOutline } from "react-icons/io5";
-import useApiData from "../utils/useApiData";
+// import useApiData from "../utils/useApiData";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-const Header = () => {
+const Header = ({handleSearch}) => {
   const [searchJobs, setSearchJobs] = useState("");
-  const { data, setFilterJobs } = useApiData();
+  // const { data, setFilterJobs } = useApiData();
+  // console.log("setFilHeader",setFilterJobs);
   // const handleSearchResult = () => {
   //   const searchedResult = data?.jobs?.filter((item) =>
   //     item.title.toLowerCase().includes(searchJobs.toLowerCase())
@@ -14,6 +15,12 @@ const Header = () => {
   //   setFilterJobs(searchedResult);
   //   setSearchJobs("");
   // };
+  const handleInputChange = (event) => {
+    const userInput = event.target.value;
+    setSearchJobs(userInput);
+    handleSearch(userInput); // Pass the user input to the parent component
+  };
+
   return (
     <nav className="bg-[#303B54] px-20 py-4">
   
@@ -24,19 +31,20 @@ const Header = () => {
             type="text"
             placeholder="Search..."
             value={searchJobs}
-            onChange={(e) => {
-              setSearchJobs(e.target.value);
-            }}
+            // onChange={(e) => {
+            //   setSearchJobs(e.target.value);
+            // }}       
+            onChange={handleInputChange}   
             className="outline-none focus:outline-none w-full  border-none bg-[#242D40] "
           />
-          <FaSearch onClick={()=>{
+          {/* <FaSearch onClick={()=>{
              const searchedResult = data?.jobs?.filter((item) =>
              item.title.toLowerCase().includes(searchJobs.toLowerCase())
            );
            console.log("SE", searchedResult);
            setFilterJobs(searchedResult);
            setSearchJobs("");
-          }} />
+          }} /> */}
         </div>
 
         <div className="flex gap-6">
